@@ -22,21 +22,6 @@ class BasicConv2d(nn.Module):
         return x
 
 
-class TransBasicConv2d(nn.Module):
-    def __init__(self, in_planes, out_planes, kernel_size=2, stride=2, padding=0, dilation=1, bias=False):
-        super(TransBasicConv2d, self).__init__()
-        self.Deconv = nn.ConvTranspose2d(in_planes, out_planes,
-                                         kernel_size=kernel_size, stride=stride,
-                                         padding=padding, dilation=dilation, bias=False)
-        self.bn = nn.BatchNorm2d(out_planes)
-        self.relu = nn.ReLU(inplace=True)
-
-    def forward(self, x):
-        x = self.Deconv(x)
-        x = self.bn(x)
-        x = self.relu(x)
-        return x
-
 
 class ChannelAttention(nn.Module):
     def __init__(self, in_planes, ratio=16):
@@ -95,7 +80,6 @@ class DSM(nn.Module):
         self.relu = nn.ReLU(True)
         self.ca = ChannelAttention(cur_channel)
         self.sa_fg = SpatialAttention_no_s()
-        self.sa_edge = SpatialAttention_no_s()
         self.sigmoid = nn.Sigmoid()
         self.FE_conv = BasicConv2d(cur_channel, cur_channel, 3, padding=1)
         self.BG_conv = BasicConv2d(cur_channel, cur_channel, 3, padding=1)
