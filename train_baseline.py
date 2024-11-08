@@ -44,7 +44,7 @@ if __name__ == '__main__':
     num_workers = 4
     batch_size = 6
     epoch = 100
-    lr_dec = [36, 37]
+    lr_dec = [80, 81]
     data = Data(img_root)
 
     loader = DataLoader(data, batch_size=batch_size, shuffle=True, num_workers=num_workers)
@@ -88,5 +88,5 @@ if __name__ == '__main__':
                 r_sal_loss = 0
             rgb, label = prefetcher.next()
         if epochi >= 0 and epochi % 2 == 0:
-            torch.save(net.state_dict(), '%s/epoch_%dBASELINE.pth' % (save_path, epochi))
+            torch.save(net.state_dict(), '%s/epoch_%d.pth' % (save_path, epochi))
     torch.save(net.state_dict(), '%s/baseline.pth' % (save_path))
