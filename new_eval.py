@@ -171,11 +171,11 @@ def evaluate2(pre_path, label_path):
 
 
 if __name__ == '__main__':
-    pre_path = './epoch_38.pth/'
+    pre_path = ''
     # pre_path = '/home/ms/PycharmProjects/mmsegmentation-0.14.0/tools/data/steel/GT0/'
 
     # label_path = '/home/ms/Documents/dataset/Metal_div/Type_I/test/GT0/'
-    label_path = '/home/xuexi/defect/test/GT/'
+    label_path = ''
 
 
     # 计算测试集每张图片的各种评价指标，最后求平均
