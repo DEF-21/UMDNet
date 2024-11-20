@@ -44,8 +44,8 @@ if __name__ == '__main__':
 
     num_workers = 4
     batch_size = 6
-    epoch = 100
-    lr_dec = [80, 81]
+    epoch = 38
+    lr_dec = [36, 37]
     num_params = 0
 
     # dataset
